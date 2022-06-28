@@ -1,0 +1,17 @@
+<p>
+    <mat-toolbar color="primary">
+        <span>Personajes</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+</p>
+<table>
+    <tr>
+        <td>Name</td>
+    </tr>
+    <tr *ngFor="let x of aux2">
+        <td>
+            <a mat-raised-button color="primary" [routerLink]="['/personaje-info/',x.id]">{{x.name}}</a>
+        </td>
+    </tr>
+    
+</table>

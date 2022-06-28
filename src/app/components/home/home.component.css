@@ -1,0 +1,32 @@
+.spacer{
+    flex: 1 1 auto;
+}
+.container{
+    padding-top:50px;
+    display: grid;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3,300px);
+    grid-gap: 15px;
+    object-fit: cover;
+}
+
+.example-card {
+    max-width: 400px;
+}
+img{
+    object-fit: cover;
+}
+.example-header-image {
+    background-size: cover;
+}
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-gap: 40px;
+}
+input{
+    font-size: .9rem;
+}
