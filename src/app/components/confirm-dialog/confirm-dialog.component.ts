@@ -18,6 +18,10 @@ export class ConfirmDialogComponent implements OnInit {
     location:{
       name:"",
       url:""
+    },
+    origin:{
+      name:"",
+      url:""
     }
   }
   iconColor:Boolean=false
