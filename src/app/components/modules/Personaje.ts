@@ -1,4 +1,5 @@
 import { Location } from './Location';
+import { Origin } from './Origin';
 export interface Personaje{
     id:Number,
     name:String,
@@ -6,5 +7,6 @@ export interface Personaje{
     gender:String,
     species:String,
     image:String,
-    location:Location
+    location:Location,
+    origin:Origin
 }
