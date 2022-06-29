@@ -24,7 +24,7 @@ img{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    grid-gap: 40px;
+    grid-gap: 30px;
 }
 input{
     font-size: .9rem;

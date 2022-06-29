@@ -22,7 +22,8 @@ export class ConfirmDialogComponent implements OnInit {
     origin:{
       name:"",
       url:""
-    }
+    },
+    episode:[""]
   }
   iconColor:Boolean=false
   constructor(public dialogRef:MatDialogRef<ConfirmDialogComponent>,@Inject(MAT_DIALOG_DATA) public message:Number,private characterService:RickandmortyService) { 
@@ -34,7 +35,7 @@ export class ConfirmDialogComponent implements OnInit {
   getCharacterById(){
     this.characterService.getCharacterById(this.message).subscribe(
       (data:any)=>{
-        this.character=data 
+        this.character=data
         if(this.character.status=="Alive"){
           this.iconColor=true
         }else if(this.character.status=="Dead"){

@@ -8,5 +8,6 @@ export interface Personaje{
     species:String,
     image:String,
     location:Location,
-    origin:Origin
+    origin:Origin,
+    episode:String[]
 }

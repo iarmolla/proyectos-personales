@@ -1,7 +1,7 @@
 <mat-toolbar>
     <div class="navbar">
         <h1 mat-button>Rick and Morty</h1>
-        <a mat-button [routerLink]="['/personajes']">Personajes</a>
+        <!-- <a mat-button [routerLink]="['/personajes']">Personajes</a> -->
         <a mat-button [routerLink]="['/episodio']">Episodios</a>
         <!-- <mat-form-field appearance="fill">
             <input matInput placeholder="Buscar" class="navbar__input" [(ngModel)]="character">
@@ -31,7 +31,7 @@
         </mat-card-header>
         <img mat-card-image src="{{personaje.image}}" alt="{{personaje.name}}">
         <mat-card-actions>
-            <button mat-button [routerLink]="['/personaje-info/',personaje.id]" >DETALLES</button>
+            <!-- <button mat-button [routerLink]="['/personaje-info/',personaje.id]" >DETALLES</button> -->
             <button mat-button (click)="openDialog(personaje.id)">DETALLES MODAL</button>          
         </mat-card-actions>
     </mat-card>
