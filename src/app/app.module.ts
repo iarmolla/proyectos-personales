@@ -19,6 +19,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     EpisodeComponent,
     CharacterComponent,
     CharacterInfoComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatInputModule,
     MatPaginatorModule
   ],
+  entryComponents:[ConfirmDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -28,7 +28,8 @@ export class EpisodeComponent implements OnInit {
         this.paginas=this.episodios.info.pages        
         this.episodiosAux=this.episodios.results
         this.dataSource=this.episodiosAux    
-        console.log(this.episodiosAux)     
+        console.log(this.episodiosAux)
+             
       }
     )
   }

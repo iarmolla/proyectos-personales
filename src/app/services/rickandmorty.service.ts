@@ -25,4 +25,7 @@ export class RickandmortyService {
   searchByName(name:String){
     return this.http.get('https://rickandmortyapi.com/api/character/?name='+name)
   }
+  getLocation(id:Number){
+    return this.http.get('https://rickandmortyapi.com/api/location/'+id)
+  }
 }

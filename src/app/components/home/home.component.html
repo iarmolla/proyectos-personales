@@ -15,7 +15,6 @@
                 <mat-icon>search</mat-icon>
             </button>
         </mat-form-field>
-        
     </div>
     <div class="spacer"></div>
     <button mat-button [matMenuTriggerFor]="menu" mat-raised-button color="accent">Logout</button>
@@ -33,7 +32,7 @@
         <img mat-card-image src="{{personaje.image}}" alt="{{personaje.name}}">
         <mat-card-actions>
             <button mat-button [routerLink]="['/personaje-info/',personaje.id]" >DETALLES</button>
-            <button mat-button>DETALLES</button>          
+            <button mat-button (click)="openDialog(personaje.id)">DETALLES MODAL</button>          
         </mat-card-actions>
     </mat-card>
 </div>

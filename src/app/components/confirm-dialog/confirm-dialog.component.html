@@ -1,0 +1,15 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>{{character.name}}</mat-card-title>
+        <mat-card-subtitle class="status">
+            <span>
+                <mat-icon class="icono" [ngClass]="{'icon__color': iconColor, 'icon__color-dead': !iconColor}">fiber_manual_record</mat-icon>
+                {{character.status}}
+            </span>
+        </mat-card-subtitle>
+        <mat-card-subtitle>{{character.gender}}</mat-card-subtitle>
+        <mat-card-subtitle>{{character.species}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{character.image}}" alt="{{character.name}}">
+</mat-card>
+

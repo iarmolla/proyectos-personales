@@ -1,0 +1,15 @@
+.status{
+    position: relative;
+}
+.icono{
+    position: absolute;
+    font-size: .5rem;
+    top: 5px;
+    left: -10%;
+}
+.icon__color{
+    color:green;
+}
+.icon__color-dead{
+    color:#B00020;
+}
