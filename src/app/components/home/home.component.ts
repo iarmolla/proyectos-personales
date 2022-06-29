@@ -63,7 +63,6 @@ export class HomeComponent implements OnInit {
     )
   }
   openDialog(id:Number){
-    console.log(id);
     const dialogRef=this.dialog.open(ConfirmDialogComponent,{data:id})
   }
 }
