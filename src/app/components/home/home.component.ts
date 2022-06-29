@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   }
   onSearch(){
     console.log(this.indiceDePagina);
-    if(this.character===""){
+    if(this.character==="" || this.character==" " || this.character.length==0){
       this.characterService.getAll(this.indiceDePagina).subscribe(
         data=>{          
           this.personajes=data

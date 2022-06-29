@@ -7,3 +7,6 @@ table{
     justify-content: center;
     align-items: center;
 }
+.navbar{
+    justify-content: space-between;
+}
