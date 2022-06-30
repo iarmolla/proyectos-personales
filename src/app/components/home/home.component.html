@@ -1,4 +1,4 @@
-<!-- <mat-toolbar>
+<mat-toolbar>
     <div class="navbar">
         <h1 mat-button>Rick And Morty</h1>
         <a mat-button [routerLink]="['/episodio']">Episodios</a>
@@ -15,7 +15,7 @@
         <button mat-menu-item [routerLink]="['/']">Cerrar sesion</button>
     </mat-menu>
 </mat-toolbar>
-<div class="container">
+<div class="container" *ngIf="loadSpinner">
     <mat-card class="example-card" *ngFor="let personaje of personajesAux">
         <mat-card-header>
             <mat-card-title>{{personaje.name}}</mat-card-title>
@@ -29,8 +29,8 @@
             <button mat-button (click)="openDialog(personaje.id)">DETALLES MODAL</button>          
         </mat-card-actions>
     </mat-card>
-</div> -->
-<mat-paginator [length]="paginas" [pageSize]="1" [pageSizeOptions]="[1]" aria-label="Select page" (page)="handlePage($event)"></mat-paginator>
-<div class="spinner">
+</div>
+<div class="spinner" *ngIf="!loadSpinner">
     <mat-spinner></mat-spinner>
 </div>
+<mat-paginator [length]="paginas" [pageSize]="1" [pageSizeOptions]="[1]" aria-label="Select page" (page)="handlePage($event)" *ngIf="loadSpinner"></mat-paginator>
