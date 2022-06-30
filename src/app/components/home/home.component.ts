@@ -1,3 +1,4 @@
+import { CharacterResponse } from './../modules/CharacterResponse';
 import { RickandmortyService } from './../../services/rickandmorty.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
@@ -5,6 +6,7 @@ import { NumberInput } from '@angular/cdk/coercion';
 import { Personaje } from '../modules/Personaje';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,36 +19,30 @@ export class HomeComponent implements OnInit {
   personajesAux:Personaje[]=[]
   paginas:NumberInput=0
   indiceDePagina:Number=1;
+  loadSpinner:Boolean=false
   constructor(private characterService:RickandmortyService,public dialog:MatDialog) { 
     
   }
   ngOnInit(): void {
+    setTimeout(()=>{
+      this.loadSpinner=true
+    },500)
     this.obtenerPersonajes()
-    this.onSearch()
+    // this.onSearch()
   }
-  obtenerPersonajes(){
+  obtenerPersonajes():void{
     this.characterService.getAll(this.indiceDePagina).subscribe(
-      data=>{
+      (data:any)=>{
+        this.personajesAux=data
         this.personajes=data;
         this.personajesAux=this.personajes.results;
         let numeroDePaginas=this.personajes.info.pages; 
-        this.paginas=numeroDePaginas
+        this.paginas=numeroDePaginas       
       }
     )
   }
   onSearch(){
-    console.log(this.indiceDePagina);
-    if(this.character==="" || this.character==" " || this.character.length==0){
-      this.characterService.getAll(this.indiceDePagina).subscribe(
-        data=>{          
-          this.personajes=data
-          this.personajesAux=this.personajes.results
-          let numeroDePaginas=this.personajes.info.pages; 
-          this.paginas=numeroDePaginas         
-        }
-      )
-    }
-    this.characterService.searchByName(this.character).subscribe(
+      this.characterService.searchByName(this.character).subscribe(
       data=>{
         this.personajes=data
         this.personajesAux=this.personajes.results

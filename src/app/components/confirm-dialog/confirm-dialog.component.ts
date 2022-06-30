@@ -10,20 +10,25 @@ import { RickandmortyService } from 'src/app/services/rickandmorty.service';
 export class ConfirmDialogComponent implements OnInit {
   character:Personaje={
     id: 0,
+    created: "",
     name: "undefined",
-    status:"undefined",
-    gender:" undefined",
-    species:" undefined",
+    status: "undefined",
+    gender: " undefined",
+    species: " undefined",
     image: "undefined",
-    location:{
-      name:"",
-      url:""
+    type: "undefined",
+    url:"",
+
+    location: {
+      name: "",
+      url: ""
     },
-    origin:{
-      name:"",
-      url:""
+    origin: {
+      name: "",
+      url: ""
     },
-    episode:[""]
+    episode: [""],
+    
   }
   iconColor:Boolean=false
   constructor(public dialogRef:MatDialogRef<ConfirmDialogComponent>,@Inject(MAT_DIALOG_DATA) public message:Number,private characterService:RickandmortyService) { 
