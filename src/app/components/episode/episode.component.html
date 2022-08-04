@@ -23,4 +23,5 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
+
 <mat-paginator [length]="paginas" [pageSize]="1" [pageSizeOptions]="[1]" aria-label="Select page" (page)="handlePage($event)"></mat-paginator>

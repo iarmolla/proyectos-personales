@@ -5,7 +5,7 @@
     position: absolute;
     font-size: .5rem;
     top: 5px;
-    left: -10%;
+    margin-left: -10px;
 }
 .icon__color{
     color:green;

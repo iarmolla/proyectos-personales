@@ -7,13 +7,20 @@
     margin:auto;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(3,350px);
+    grid-template-columns: repeat(3,320px);
     grid-gap: 15px;
     object-fit: cover;
+    position: relative;
 }
 .example-card {
     max-width: 400px;
-    max-height: 700px;
+}
+.spinner{
+    height: 90%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 img{
     object-fit: cover;
@@ -32,4 +39,17 @@ input{
 }
 .example-card{
     object-fit: cover;
+}
+.icon__filter{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding-left: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.icon__order{
+    display: flex;
+    align-items: center;
 }

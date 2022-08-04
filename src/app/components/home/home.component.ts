@@ -7,6 +7,8 @@ import { Personaje } from '../modules/Personaje';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ThisReceiver } from '@angular/compiler';
+import { FormControl } from '@angular/forms';
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,6 +22,13 @@ export class HomeComponent implements OnInit {
   paginas:NumberInput=0
   indiceDePagina:Number=1;
   loadSpinner:Boolean=false
+  toppings = new FormControl('');
+  toppingList: string[] = ['alive','female','male','human'];
+  filter:any={
+    gender:"",
+    status:"",
+    species:""
+  }
   constructor(private characterService:RickandmortyService,public dialog:MatDialog) { 
     
   }
@@ -41,6 +50,7 @@ export class HomeComponent implements OnInit {
       }
     )
   }
+  //busqueda para que el usuario pueda buscar cualquier personaje
   onSearch(){
       this.characterService.searchByName(this.character).subscribe(
       data=>{
@@ -58,6 +68,60 @@ export class HomeComponent implements OnInit {
       }
     )
   }
+  //filtrar por personaje
+  filterCharacter(){  
+    this.toppings.value.forEach((element: string) => {
+      switch(element){
+        case 'female':
+          this.filter.gender=element
+          this.filterByGender(this.filter.gender)
+          break;
+        case 'human':          
+          this.filter.species=element   
+          this.filterBySpecies(this.filter.species)           
+          break;
+      }      
+    });
+  }
+  //filtrar por genero
+  filterByGender(gender:String){    
+    this.characterService.getByGender(gender).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.personajesAux=data
+        this.personajes=data;
+        this.personajesAux=this.personajes.results;
+        let numeroDePaginas=this.personajes.info.pages; 
+        this.paginas=numeroDePaginas      
+      }
+    )
+  }
+  filterByStatus(status:String){
+    console.log(status)
+    this.characterService.getByStatus(status).subscribe(
+      (data:any)=>{
+        this.personajesAux=data
+        this.personajes=data;
+        this.personajesAux=this.personajes.results;
+        let numeroDePaginas=this.personajes.info.pages; 
+        this.paginas=numeroDePaginas 
+      }
+    )
+  }
+  filterBySpecies(species:String){
+    this.characterService.getBySpecies(species).subscribe(
+      (data:any)=>{
+        this.personajesAux=data
+        this.personajes=data;
+        this.personajesAux=this.personajes.results;
+        let numeroDePaginas=this.personajes.info.pages; 
+        this.paginas=numeroDePaginas 
+      }
+    )
+  }
+  //boton de ordenar pero sin funcionalidad
+  // orderByName(){
+  // }
   openDialog(id:Number){
     const dialogRef=this.dialog.open(ConfirmDialogComponent,{data:id})
   }
